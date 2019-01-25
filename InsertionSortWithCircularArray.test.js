@@ -211,4 +211,13 @@ describe('main', () => {
   it('should sort the input array in a circular fashion', () => {
     expect(sortingArray.main([33, 32, 31, 30, 25, 24, 21, 17, 14])).toEqual([33, 14, 17, 21, 24, 25, 30, 31, 32]);
   });
+  it('should sort the input array in a circular fashion', () => {
+    expect(sortingArray.main([10,1,5,3,7,9,2,4,8,6])).toEqual([5, 6, 7, 8, 9, 10, 1, 2, 3, 4]);
+  });
+  it('should sort the input array in a circular fashion', () => {
+    expect(sortingArray.main([10,3,1])).toEqual([10,1,3]);
+  });
+  it('should sort the input array in a circular fashion', () => {
+    expect(sortingArray.main([25,24])).toEqual([25,24]);
+  });
 });
