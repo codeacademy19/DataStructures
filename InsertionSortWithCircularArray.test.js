@@ -203,3 +203,12 @@ describe('insertMiddle', () => {
     });
   });
 });
+
+describe('main', () => {
+  it('should sort the input array in a circular fashion', () => {
+    expect(sortingArray.main([25, 57, 37, 48, 12, 92, 86, 33])).toEqual([33, 37, 48, 57, 86, 92, 12, 25]);
+  });
+  it('should sort the input array in a circular fashion', () => {
+    expect(sortingArray.main([33, 32, 31, 30, 25, 24, 21, 17, 14])).toEqual([33, 14, 17, 21, 24, 25, 30, 31, 32]);
+  });
+});

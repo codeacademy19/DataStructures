@@ -61,13 +61,34 @@ const insertMiddle = (value, circularArray) => {
   return circularArray;
 };
 
-/*console.log(insertMiddle(9, {
+/* console.log(insertMiddle(9, {
     array: [3,4,8,10,45,-1,-1,1 ],
     tail: 4,
     head: 7,
     len: 8,
     valid:6
-}));*/
+})); */
+const main = (unsortedArray) => {
+  const circularArray = {
+    array: Array(unsortedArray.length).fill(-1),
+    head: 0,
+    tail: 0,
+    len: unsortedArray.length,
+    valid: 0,
+  };
+  unsortedArray.map((x) => {
+    if (x < circularArray.array[circularArray.head] || circularArray.valid === 0) {
+      insertSmallest(x, circularArray);
+    } else if (x > circularArray.array[circularArray.tail]) {
+      insertLargest(x, circularArray);
+    } else {
+      insertMiddle(x, circularArray);
+    }
+    console.log(circularArray.array.reduce((x, y) => `${x} ${y}`, ''));
+  });
+  return circularArray.array;
+};
+main([25, 57, 37, 48, 12, 92, 86, 33]);
 module.exports = {
-  insertSmallest, insertLargest, findPosition, insertMiddle,
+  insertSmallest, insertLargest, findPosition, insertMiddle, main,
 };
