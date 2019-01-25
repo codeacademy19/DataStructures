@@ -4,6 +4,7 @@ const insertSmallest = (value, circularArray) => {
     circularArray.head = circularArray.head === 0 ? circularArray.len - 1 : circularArray.head - 1;
   }
   circularArray.array[circularArray.head] = value;
+  circularArray.valid+=1;
   return circularArray;
 };
 const insertLargest = (value, circularArray) => {
@@ -12,6 +13,15 @@ const insertLargest = (value, circularArray) => {
     circularArray.tail = circularArray.tail === circularArray.len - 1 ? 0 : circularArray.tail + 1;
   }
   circularArray.array[circularArray.tail] = value;
+  circularArray.valid+=1;
   return circularArray;
 };
-module.exports = { insertSmallest, insertLargest };
+const findPosition=(value,circularArray)=>{
+    let countOfLeft=0;
+    while (circularArray.array[circularArray.head] < value && circularArray.array[circularArray.head] !== -1){
+        circularArray.head = circularArray.head === circularArray.len - 1 ? 0 : circularArray.head + 1;
+        countOfLeft+=1;
+    }
+    return [countOfLeft,circularArray.valid-countOfLeft];
+} 
+module.exports = { insertSmallest, insertLargest, findPosition };
